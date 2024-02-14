@@ -57,6 +57,7 @@ def normalize_image(image):
 
 
 def generate_voc_masks():
+  """Generates masks from the VOC dataset by replacing the borders with the closest label and saving the relabeled version as .png"""
   voc_dataset = torchvision.datasets.VOCSegmentation(os.path.join(DATA_DIR, 'voc'), year='2012', image_set="train", download=DOWNLOAD_IF_NEEDED, transforms=None)
 
   voc_masks_dir = Path(DATA_DIR) / "voc_masks" 
